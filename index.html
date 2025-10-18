@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ff6b6b">
+  <title>Jogo da Vida HPV</title>
+  
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  
+  <audio id="game-bgm" loop preload="auto">
+    <source src="assets/audio/bgm.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id="sound-move" preload="auto">
+    <source src="assets/audio/move.mp3" type="audio/mp3">
+  </audio>
+  <audio id="sound-dice" preload="auto">
+    <source src="assets/audio/dice_roll.ogg" type="audio/ogg">
+  </audio>
+  <audio id="sound-coin" preload="auto">
+    <source src="assets/audio/coin.wav" type="audio/wav">
+  </audio>
+  <audio id="sound-correct" preload="auto">
+    <source src="assets/audio/win.wav" type="audio/wav">
+  </audio>
+  <audio id="sound-incorrect" preload="auto">
+    <source src="assets/audio/error.mp3" type="audio/mp3">
+  </audio>
+
+
+  <div class="container">
+   <div class="game-card">
+
+    <div id="video-intro-screen">
+        <div class="header">
+            <h1 class="game-title">🎬 Introdução ao HPV</h1>
+            <p class="subtitle" id="video-status">O vídeo está carregando... prepare-se para jogar!</p>
+        </div>
+        <div class="video-container show" id="intro-video-container" style="display: flex; justify-content: center; align-items: center; min-height: 200px;">
+            <video id="intro-video" preload="auto" poster="assets/video/poster.jpg" style="width: 100%; max-width: 640px; display: none;">
+                <source src="assets/video/Anime_Girl_Confused_About_HPV.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            <button class="btn btn-primary hidden" id="play-intro-btn" onclick="startIntroFlow()">▶️ Iniciar Vídeo / Jogo</button>
+        </div>
+    </div>
+
+    <div id="welcome-screen" class="hidden">
+     <div class="header">
+      <h1 class="game-title" id="main-title">🎲 Jogo da Vida HPV 🎲</h1>
+      <p class="subtitle" id="main-subtitle">Aprenda sobre HPV jogando! Role a roleta, responda perguntas e use power-ups especiais.</p>
+     </div>
+     <div style="text-align: center;">
+      <div style="margin-bottom: 20px;"><label for="player1-name" style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9rem;">Nome do Jogador 1:</label> <input type="text" id="player1-name" placeholder="Jogador 1..." style="padding: 12px; border: 2px solid #ff6b6b; border-radius: 8px; font-size: 1rem; width: 100%; max-width: 280px; min-height: 44px; touch-action: manipulation; margin-bottom: 15px;"> <label for="player2-name" style="display: block; margin-bottom: 10px; font-weight: bold; font-size: 0.9rem;">Nome do Jogador 2:</label> <input type="text" id="player2-name" placeholder="Jogador 2..." style="padding: 12px; border: 2px solid #4ecdc4; border-radius: 8px; font-size: 1rem; width: 100%; max-width: 280px; min-height: 44px; touch-action: manipulation;">
+      </div><button class="btn btn-primary" id="start-game" onclick="startGame()"> <span id="start-button-text">🎮 Começar Jogo</span> </button>
+     </div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+     <div class="header">
+      <h1 class="game-title" id="game-title">🎲 Jogo da Vida HPV 🎲</h1>
+     </div><div class="media-controls">
+      <div class="media-title">
+       🎬 Controles de Mídia
+      </div>
+      <div class="media-buttons"><button class="media-btn" id="video-toggle" onclick="toggleVideo()"> 📺 Mostrar Vídeo Educativo </button> <button class="media-btn" id="audio-toggle" onclick="toggleAudio()"> 🎵 Ligar Música </button> <button class="media-btn" id="sound-toggle" onclick="toggleSound()"> 🔊 Sons Ligados </button>
+      </div>
+     </div><div class="video-container" id="video-container">
+      <video id="game-video-display" controls preload="auto" style="width: 100%; display: block;"><source src="assets/video/Anime_Girl_Confused_About_HPV.mp4" type="video/mp4"> Seu navegador não suporta vídeo HTML5.
+      </video>
+     </div><div class="game-info">
+      <div class="current-player" id="current-player">
+       Vez de: Jogador 1
+      </div>
+      <div style="margin-top: 10px;"><span>Posição: <strong id="player-position">0</strong></span> | <span>Acertos: <strong id="player-score">0</strong></span> | <span>💰 Moedas: <strong id="player-coins">0</strong></span>
+      </div>
+     </div><div class="powerups-panel">
+      <div class="powerups-title">
+       ⚡ LOJA DE POWER-UPS ⚡
+      </div>
+      <div class="powerups-grid">
+       <div class="powerup-item" id="shield-powerup" onclick="buyPowerup('shield')">
+        <div class="powerup-icon">
+         🛡️
+        </div>
+        <div class="powerup-name">
+         Escudo
+        </div>
+        <div class="powerup-cost">
+         💰 5 moedas
+        </div>
+       </div>
+       <div class="powerup-item" id="double-powerup" onclick="buyPowerup('double')">
+        <div class="powerup-icon">
+         ⚡
+        </div>
+        <div class="powerup-name">
+         Dobrar Moedas
+        </div>
+        <div class="powerup-cost">
+         💰 8 moedas
+        </div>
+       </div>
+       <div class="powerup-item" id="jump-powerup" onclick="buyPowerup('jump')">
+        <div class="powerup-icon">
+         🚀
+        </div>
+        <div class="powerup-name">
+         Super Pulo
+        </div>
+        <div class="powerup-cost">
+         💰 10 moedas
+        </div>
+       </div>
+       <div class="powerup-item" id="hint-powerup" onclick="buyPowerup('hint')">
+        <div class="powerup-icon">
+         💡
+        </div>
+        <div class="powerup-name">
+         Dica Extra
+        </div>
+        <div class="powerup-cost">
+         💰 6 moedas
+        </div>
+       </div>
+      </div>
+     </div><div class="roulette-container">
+      <div class="roulette-wheel" id="roulette-wheel">
+       <div class="roulette-pointer"></div>
+       <div class="roulette-center">
+        🎯
+       </div>
+      </div><button class="spin-button" id="spin-button" onclick="spinRoulette()"> 🎲 Girar Roleta </button>
+      <div id="spin-result" style="margin-top: 15px; font-weight: bold; font-size: 1.1rem;"></div>
+     </div><div class="board-container">
+      <div class="game-board" id="game-board"></div>
+     </div><div class="players-panel">
+      <div class="player-card player-1" id="player1-card">
+       <div class="player-name" id="player1-name-display">
+        Jogador 1
+       </div>
+       <div class="player-stats">
+        <div>
+         Posição: <span id="player1-position-display">0</span>/20
+        </div>
+        <div>
+         Perguntas: <span id="player1-questions-display">0</span>
+        </div>
+        <div>
+         Acertos: <span id="player1-correct-display">0</span>
+        </div>
+        <div>
+         💰 Moedas: <span id="player1-coins-display">0</span>
+        </div>
+       </div>
+       <div style="margin-top: 10px; font-size: 0.9rem;">
+        <div id="player1-active-powerups">
+         Power-ups Ativos: Nenhum
+        </div>
+       </div>
+      </div>
+      <div class="player-card player-2" id="player2-card">
+       <div class="player-name" id="player2-name-display">
+        Jogador 2
+       </div>
+       <div class="player-stats">
+        <div>
+         Posição: <span id="player2-position-display">0</span>/20
+        </div>
+        <div>
+         Perguntas: <span id="player2-questions-display">0</span>
+        </div>
+        <div>
+         Acertos: <span id="player2-correct-display">0</span>
+        </div>
+        <div>
+         💰 Moedas: <span id="player2-coins-display">0</span>
+        </div>
+       </div>
+       <div style="margin-top: 10px; font-size: 0.9rem;">
+        <div id="player2-active-powerups">
+         Power-ups Ativos: Nenhum
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><div id="results-screen" class="hidden">
+     <div class="header">
+      <h1 class="game-title">🏆 Fim de Jogo! 🏆</h1>
+      <div style="font-size: 1.2rem; margin: 20px 0;">
+       <div id="final-message">
+        Jogo finalizado!
+       </div>
+       <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div style="background: rgba(255, 107, 107, 0.1); border: 2px solid #ff6b6b; border-radius: 10px; padding: 15px;">
+         <h3 style="color: #ff6b6b; margin: 0 0 10px 0;" id="player1-final-name">Jogador 1</h3>
+         <div>
+          <strong>Posição: <span id="player1-final-position">0</span>/20</strong>
+         </div>
+         <div>
+          <strong>Acertos: <span id="player1-final-score">0</span></strong>
+         </div>
+         <div>
+          <strong>💰 Moedas: <span id="player1-final-coins">0</span></strong>
+         </div>
+        </div>
+        <div style="background: rgba(78, 205, 196, 0.1); border: 2px solid #4ecdc4; border-radius: 10px; padding: 15px;">
+         <h3 style="color: #4ecdc4; margin: 0 0 10px 0;" id="player2-final-name">Jogador 2</h3>
+         <div>
+          <strong>Posição: <span id="player2-final-position">0</span>/20</strong>
+         </div>
+         <div>
+          <strong>Acertos: <span id="player2-final-score">0</span></strong>
+         </div>
+         <div>
+          <strong>💰 Moedas: <span id="player2-final-coins">0</span></strong>
+         </div>
+        </div>
+       </div>
+       <div style="margin-top: 20px; font-size: 1.5rem;">
+        <div id="winner-announcement">
+         🎉 Resultado Final 🎉
+        </div>
+       </div>
+      </div><button class="btn btn-primary" onclick="restartGame()"> 🔄 Jogar Novamente </button>
+     </div>
+    </div>
+   </div>
+  </div><div class="modal" id="question-modal">
+   <div class="modal-content">
+    <div class="question-header">
+     <h3 id="question-theme" style="color: #6366f1;">Pergunta sobre HPV</h3>
+    </div>
+    <div class="case-study" id="question-case">
+     <h4>Caso Clínico:</h4>
+     <p id="case-text"></p>
+    </div>
+    <div class="question-text" id="question-text"></div>
+    <div id="hint-section" class="hidden" style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+     <h4 style="color: #856404;">💡 Dica:</h4>
+     <p id="hint-text"></p>
+    </div>
+    <div class="options-grid" id="options-grid"></div>
+    <div class="explanation" id="explanation">
+     <h4>Explicação:</h4>
+     <p id="explanation-text"></p>
+    </div>
+    <div class="modal-buttons"><button class="btn btn-primary" id="continue-btn" onclick="continueGame()" disabled> Continuar </button>
+    </div>
+   </div>
+  </div>
+  
+  <script src="js/game.js"></script>
+
+ </body>
+</html>
