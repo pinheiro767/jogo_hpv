@@ -1,411 +1,399 @@
-// Quiz questions data with hints
-        const quizData = [
-            {
-                id: "q1",
-                tema: "Transmissão e Sintomas",
-                caso: "Caso de João (25 anos): João notou o surgimento de pequenas 'verrugas' na região genital. Ele só teve relações com preservativo.",
-                pergunta: "Como João pode ter contraído HPV, mesmo usando camisinha? O preservativo protege 100% da transmissão?",
-                hint: "Pense em áreas do corpo que não são cobertas pelo preservativo durante o contato íntimo.",
-                opcoes: {
-                    "A": "Sim, o preservativo protege 100%, então João deve ter contraído de outra forma, como contato com objetos.",
-                    "B": "Não, o HPV é transmitido pelo contato pele-a-pele em áreas não cobertas pelo preservativo, por isso a proteção não é total.",
-                    "C": "O HPV só pode ser transmitido pelo sêmen, o que indica que o preservativo rasgou ou foi mal utilizado.",
-                    "D": "É impossível, o diagnóstico de João está incorreto, pois o HPV exige penetração para ser transmitido."
-                },
-                resposta_correta: "B",
-                explicacao: "O HPV é transmitido primariamente pelo contato pele-a-pele ou mucosa-com-mucosa. Como o preservativo não cobre toda a área genital, a transmissão ainda é possível através do contato com a pele infectada na base do pênis, bolsa escrotal ou região perianal."
-            },
-            {
-                id: "q2",
-                tema: "Transmissão e Sintomas",
-                caso: "Caso de Maria (30 anos): Maria fez exames de rotina e o resultado deu positivo para HPV, mas ela não tem verrugas ou qualquer outro sintoma aparente.",
-                pergunta: "É possível ter o vírus HPV e não apresentar sintoma algum? O que esse resultado significa para a saúde de Maria?",
-                hint: "A maioria das infecções por HPV são silenciosas, sem sintomas visíveis.",
-                opcoes: {
-                    "A": "Não, a presença do vírus significa que as verrugas devem aparecer em breve.",
-                    "B": "Sim, a maioria das pessoas com HPV é assintomática, mas o vírus ainda pode ser transmitido e exige monitoramento.",
-                    "C": "O resultado significa que o corpo de Maria já eliminou o vírus e ela está imune.",
-                    "D": "Significa que ela não tem HPV de alto risco, apenas o de baixo risco que causa verrugas."
-                },
-                resposta_correta: "B",
-                explicacao: "A maioria (cerca de 80%) das pessoas que têm contato com o HPV é assintomática (infecção subclínica). O resultado positivo exige acompanhamento médico para monitorar se o vírus causará lesões precursoras, mesmo sem verrugas visíveis."
-            },
-            {
-                id: "q3",
-                tema: "Transmissão e Sintomas",
-                caso: "Caso de Pedro (40 anos): Pedro recebeu um diagnóstico de HPV de baixo risco. Ele está preocupado em passar o vírus para sua parceira, com quem vive há 10 anos.",
-                pergunta: "Se Pedro iniciar o tratamento para as lesões, ele se torna imune e não poderá mais transmitir o HPV? É possível se recontaminar?",
-                hint: "O tratamento remove lesões visíveis, mas considere se o vírus é completamente eliminado do corpo.",
-                opcoes: {
-                    "A": "Sim, o tratamento elimina o vírus completamente do corpo e confere imunidade permanente.",
-                    "B": "O tratamento elimina as lesões, mas o vírus pode permanecer. A recontaminação com outros tipos de HPV também é possível.",
-                    "C": "A parceira provavelmente já tem o vírus, então o tratamento de Pedro não é relevante para a transmissão.",
-                    "D": "Ele não poderá mais transmitir o HPV, mas pode ser recontaminado se não usar preservativo."
-                },
-                resposta_correta: "B",
-                explicacao: "O tratamento remove as lesões visíveis (verrugas ou lesões precursoras), mas não elimina o vírus do corpo. O vírus pode continuar ativo ou latente, e a pessoa não cria imunidade contra todos os tipos de HPV, podendo ser infectada novamente (recontaminação)."
-            },
-            {
-                id: "q4",
-                tema: "Transmissão e Sintomas",
-                caso: "Caso de Ana (22 anos): Ana está confusa. Ela ouviu dizer que o HPV é transmitido apenas por penetração vaginal ou anal.",
-                pergunta: "A transmissão do HPV pode ocorrer por beijo ou contato manual-genital? Quais são as formas de contágio além da relação sexual com penetração?",
-                hint: "O HPV é um vírus de contato que não necessita de fluidos corporais para transmissão.",
-                opcoes: {
-                    "A": "O HPV só é transmitido por penetração vaginal ou anal, outras formas de contato são seguras.",
-                    "B": "Sim, o HPV pode ser transmitido por sexo oral, contato manual-genital e até mesmo beijo, pois é um vírus de contato.",
-                    "C": "O beijo não transmite HPV, mas o sexo oral e contato manual-genital podem transmitir o vírus.",
-                    "D": "Apenas o sexo oral pode transmitir HPV além da penetração, o contato manual é seguro."
-                },
-                resposta_correta: "B",
-                explicacao: "O HPV pode ser transmitido através de qualquer contato íntimo pele-a-pele ou mucosa-com-mucosa, incluindo sexo oral, contato manual-genital e até mesmo beijo (especialmente para HPV oral). O vírus não requer penetração para ser transmitido."
-            }
-        ];
+// Conteúdo do game.js COMPLETO e CORRIGIDO
+// ... (Seu quizData) ...
+const quizData = [
+    {
+        id: "q1",
+        tema: "Transmissão e Sintomas",
+        caso: "Caso de João (25 anos): João notou o surgimento de pequenas 'verrugas' na região genital. Ele só teve relações com preservativo.",
+        pergunta: "Como João pode ter contraído HPV, mesmo usando camisinha? O preservativo protege 100% da transmissão?",
+        hint: "Pense em áreas do corpo que não são cobertas pelo preservativo durante o contato íntimo.",
+        opcoes: {
+            "A": "Sim, o preservativo protege 100%, então João deve ter contraído de outra forma, como contato com objetos.",
+            "B": "Não, o HPV é transmitido pelo contato pele-a-pele em áreas não cobertas pelo preservativo, por isso a proteção não é total.",
+            "C": "O HPV só pode ser transmitido pelo sêmen, o que indica que o preservativo rasgou ou foi mal utilizado.",
+            "D": "É impossível, o diagnóstico de João está incorreto, pois o HPV exige penetração para ser transmitido."
+        },
+        resposta_correta: "B",
+        explicacao: "O HPV é transmitido primariamente pelo contato pele-a-pele ou mucosa-com-mucosa. Como o preservativo não cobre toda a área genital, a transmissão ainda é possível através do contato com a pele infectada na base do pênis, bolsa escrotal ou região perianal."
+    },
+    {
+        id: "q2",
+        tema: "Transmissão e Sintomas",
+        caso: "Caso de Maria (30 anos): Maria fez exames de rotina e o resultado deu positivo para HPV, mas ela não tem verrugas ou qualquer outro sintoma aparente.",
+        pergunta: "É possível ter o vírus HPV e não apresentar sintoma algum? O que esse resultado significa para a saúde de Maria?",
+        hint: "A maioria das infecções por HPV são silenciosas, sem sintomas visíveis.",
+        opcoes: {
+            "A": "Não, a presença do vírus significa que as verrugas devem aparecer em breve.",
+            "B": "Sim, a maioria das pessoas com HPV é assintomática, mas o vírus ainda pode ser transmitido e exige monitoramento.",
+            "C": "O resultado significa que o corpo de Maria já eliminou o vírus e ela está imune.",
+            "D": "Significa que ela não tem HPV de alto risco, apenas o de baixo risco que causa verrugas."
+        },
+        resposta_correta: "B",
+        explicacao: "A maioria (cerca de 80%) das pessoas que têm contato com o HPV é assintomática (infecção subclínica). O resultado positivo exige acompanhamento médico para monitorar se o vírus causará lesões precursoras, mesmo sem verrugas visíveis."
+    },
+    {
+        id: "q3",
+        tema: "Transmissão e Sintomas",
+        caso: "Caso de Pedro (40 anos): Pedro recebeu um diagnóstico de HPV de baixo risco. Ele está preocupado em passar o vírus para sua parceira, com quem vive há 10 anos.",
+        pergunta: "Se Pedro iniciar o tratamento para as lesões, ele se torna imune e não poderá mais transmitir o HPV? É possível se recontaminar?",
+        hint: "O tratamento remove lesões visíveis, mas considere se o vírus é completamente eliminado do corpo.",
+        opcoes: {
+            "A": "Sim, o tratamento elimina o vírus completamente do corpo e confere imunidade permanente.",
+            "B": "O tratamento elimina as lesões, mas o vírus pode permanecer. A recontaminação com outros tipos de HPV também é possível.",
+            "C": "A parceira provavelmente já tem o vírus, então o tratamento de Pedro não é relevante para a transmissão.",
+            "D": "Ele não poderá mais transmitir o HPV, mas pode ser recontaminado se não usar preservativo."
+        },
+        resposta_correta: "B",
+        explicacao: "O tratamento remove as lesões visíveis (verrugas ou lesões precursoras), mas não elimina o vírus do corpo. O vírus pode continuar ativo ou latente, e a pessoa não cria imunidade contra todos os tipos de HPV, podendo ser infectada novamente (recontaminação)."
+    },
+    {
+        id: "q4",
+        tema: "Transmissão e Sintomas",
+        caso: "Caso de Ana (22 anos): Ana está confusa. Ela ouviu dizer que o HPV é transmitido apenas por penetração vaginal ou anal.",
+        pergunta: "A transmissão do HPV pode ocorrer por beijo ou contato manual-genital? Quais são as formas de contágio além da relação sexual com penetração?",
+        hint: "O HPV é um vírus de contato que não necessita de fluidos corporais para transmissão.",
+        opcoes: {
+            "A": "O HPV só é transmitido por penetração vaginal ou anal, outras formas de contato são seguras.",
+            "B": "Sim, o HPV pode ser transmitido por sexo oral, contato manual-genital e até mesmo beijo, pois é um vírus de contato.",
+            "C": "O beijo não transmite HPV, mas o sexo oral e contato manual-genital podem transmitir o vírus.",
+            "D": "Apenas o sexo oral pode transmitir HPV além da penetração, o contato manual é seguro."
+        },
+        resposta_correta: "B",
+        explicacao: "O HPV pode ser transmitido através de qualquer contato íntimo pele-a-pele ou mucosa-com-mucosa, incluindo sexo oral, contato manual-genital e até mesmo beijo (especialmente para HPV oral). O vírus não requer penetração para ser transmitido."
+    }
+];
 
-        // Mapeamento de elementos de mídia
-        const introVideo = document.getElementById('intro-video');
-        const gameVideoDisplay = document.getElementById('game-video-display');
-        const gameBGM = document.getElementById('game-bgm');
-        const soundMove = document.getElementById('sound-move');
-        const soundDice = document.getElementById('sound-dice');
-        const soundCoin = document.getElementById('sound-coin');
-        const soundCorrect = document.getElementById('sound-correct');
-        const soundIncorrect = document.getElementById('sound-incorrect');
+// Mapeamento de elementos de mídia
+const introVideo = document.getElementById('intro-video');
+const unmuteBtn = document.getElementById('unmute-btn'); // NOVO Mapeamento
+const playFallbackBtn = document.getElementById('play-intro-btn'); // Fallback Btn
+const gameVideoDisplay = document.getElementById('game-video-display');
+const gameBGM = document.getElementById('game-bgm');
+const soundMove = document.getElementById('sound-move');
+const soundDice = document.getElementById('sound-dice');
+const soundCoin = document.getElementById('sound-coin');
+const soundCorrect = document.getElementById('sound-correct');
+const soundIncorrect = document.getElementById('sound-incorrect');
 
 
-        // Media state (Estado da mídia)
-        let mediaState = {
-            videoVisible: false,
-            audioPlaying: false,
-            soundEnabled: true,
-            bgmVolume: 0.5 // Volume padrão para a música de fundo
-        };
+// Media state (Estado da mídia)
+let mediaState = {
+    videoVisible: false,
+    audioPlaying: false,
+    soundEnabled: true,
+    bgmVolume: 0.5 // Volume padrão para a música de fundo
+};
 
-        // Game state
-        let players = [
-            {
-                id: 1,
-                name: '',
-                position: 0,
-                questionsAnswered: 0,
-                correctAnswers: 0,
-                coins: 0,
-                powerups: {
-                    shield: false,
-                    double: false,
-                    jump: false,
-                    hint: false
-                }
-            },
-            {
-                id: 2,
-                name: '',
-                position: 0,
-                questionsAnswered: 0,
-                correctAnswers: 0,
-                coins: 0,
-                powerups: {
-                    shield: false,
-                    double: false,
-                    jump: false,
-                    hint: false
-                }
-            }
-        ];
-
-        let gameState = {
-            isSpinning: false,
-            currentQuestion: null,
-            boardSize: 20,
-            specialCells: {},
-            currentPlayerIndex: 0,
-            gameStarted: false
-        };
-
-        let currentRecordCount = 0;
-
-        // Power-up costs
-        const powerupCosts = {
-            shield: 5,
-            double: 8,
-            jump: 10,
-            hint: 6
-        };
-
-        // Default configuration (mantida)
-        const defaultConfig = {
-            game_title: "Jogo da Vida HPV",
-            subtitle: "Aprenda sobre HPV jogando!",
-            start_button_text: "Começar Jogo"
-        };
-
-        // Data handler for SDK (mantido)
-        const dataHandler = {
-            onDataChanged(data) {
-                currentRecordCount = data.length;
-            }
-        };
-
-        // Element SDK implementation (mantido)
-        const element = {
-            defaultConfig,
-            render: async (config) => {
-                const title = config.game_title || defaultConfig.game_title;
-                const subtitle = config.subtitle || defaultConfig.subtitle;
-                const startButtonText = config.start_button_text || defaultConfig.start_button_text;
-
-                document.getElementById('main-title').textContent = `🎲 ${title} 🎲`;
-                document.getElementById('main-subtitle').textContent = subtitle;
-                document.getElementById('start-button-text').textContent = `🎮 ${startButtonText}`;
-                
-                const gameTitle = document.getElementById('game-title');
-                if (gameTitle) {
-                    gameTitle.textContent = `🎲 ${title} 🎲`;
-                }
-            },
-            mapToCapabilities: (config) => ({
-                recolorables: [],
-                borderables: [],
-                fontEditable: undefined,
-                fontSizeable: undefined
-            }),
-            mapToEditPanelValues: (config) => new Map([
-                ["game_title", config.game_title || defaultConfig.game_title],
-                ["subtitle", config.subtitle || defaultConfig.subtitle],
-                ["start_button_text", config.start_button_text || defaultConfig.start_button_text]
-            ])
-        };
-
-        // --- FUNÇÕES DE CONTROLE DE MÍDIA ---
-
-        function updateMediaControlsDisplay() {
-            // Atualiza o botão de vídeo
-            const videoToggle = document.getElementById('video-toggle');
-            if (mediaState.videoVisible) {
-                videoToggle.textContent = '📺 Ocultar Vídeo';
-                videoToggle.classList.add('active');
-            } else {
-                videoToggle.textContent = '📺 Mostrar Vídeo Educativo';
-                videoToggle.classList.remove('active');
-            }
-
-            // Atualiza o botão de música
-            const audioToggle = document.getElementById('audio-toggle');
-            if (mediaState.audioPlaying) {
-                audioToggle.textContent = '🎵 Desligar Música';
-                audioToggle.classList.add('active');
-                audioToggle.classList.remove('inactive');
-            } else {
-                audioToggle.textContent = '🎵 Ligar Música';
-                audioToggle.classList.remove('active');
-                audioToggle.classList.add('inactive');
-            }
-
-            // Atualiza o botão de sons
-            const soundToggle = document.getElementById('sound-toggle');
-            if (mediaState.soundEnabled) {
-                soundToggle.textContent = '🔊 Sons Ligados';
-                soundToggle.classList.add('active');
-                soundToggle.classList.remove('inactive');
-            } else {
-                soundToggle.textContent = '🔇 Sons Desligados';
-                soundToggle.classList.remove('active');
-                soundToggle.classList.add('inactive');
-            }
+// Game state
+let players = [
+    {
+        id: 1,
+        name: '',
+        position: 0,
+        questionsAnswered: 0,
+        correctAnswers: 0,
+        coins: 0,
+        powerups: {
+            shield: false,
+            double: false,
+            jump: false,
+            hint: false
         }
+    },
+    {
+        id: 2,
+        name: '',
+        position: 0,
+        questionsAnswered: 0,
+        correctAnswers: 0,
+        coins: 0,
+        powerups: {
+            shield: false,
+            double: false,
+            jump: false,
+            hint: false
+        }
+    }
+];
 
-        function toggleVideo() {
-            const videoContainer = document.getElementById('video-container');
+let gameState = {
+    isSpinning: false,
+    currentQuestion: null,
+    boardSize: 20,
+    specialCells: {},
+    currentPlayerIndex: 0,
+    gameStarted: false
+};
+
+let currentRecordCount = 0;
+
+// Power-up costs
+const powerupCosts = {
+    shield: 5,
+    double: 8,
+    jump: 10,
+    hint: 6
+};
+
+// Default configuration (mantida)
+const defaultConfig = {
+    game_title: "Jogo da Vida HPV",
+    subtitle: "Aprenda sobre HPV jogando!",
+    start_button_text: "Começar Jogo"
+};
+
+// Data handler for SDK (mantido)
+const dataHandler = {
+    onDataChanged(data) {
+        currentRecordCount = data.length;
+    }
+};
+
+// Element SDK implementation (mantido)
+const element = {
+    defaultConfig,
+    render: async (config) => {
+        const title = config.game_title || defaultConfig.game_title;
+        const subtitle = config.subtitle || defaultConfig.subtitle;
+        const startButtonText = config.start_button_text || defaultConfig.start_button_text;
+
+        document.getElementById('main-title').textContent = `🎲 ${title} 🎲`;
+        document.getElementById('main-subtitle').textContent = subtitle;
+        document.getElementById('start-button-text').textContent = `🎮 ${startButtonText}`;
+        
+        const gameTitle = document.getElementById('game-title');
+        if (gameTitle) {
+            gameTitle.textContent = `🎲 ${title} 🎲`;
+        }
+    },
+    mapToCapabilities: (config) => ({
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+    }),
+    mapToEditPanelValues: (config) => new Map([
+        ["game_title", config.game_title || defaultConfig.game_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["start_button_text", config.start_button_text || defaultConfig.start_button_text]
+    ])
+};
+
+// --- FUNÇÕES DE CONTROLE DE MÍDIA E FLUXO ---
+
+function toggleUnmuteVideo() {
+    if (introVideo.muted) {
+        introVideo.muted = false;
+        introVideo.play().catch(e => console.warn("Falha ao reproduzir o vídeo após unmute:", e));
+        unmuteBtn.textContent = '🔊 Desligar Som';
+    } else {
+        introVideo.muted = true;
+        unmuteBtn.textContent = '🔇 Ligar Som';
+    }
+}
+
+
+function updateMediaControlsDisplay() {
+    // Atualiza o botão de vídeo
+    const videoToggle = document.getElementById('video-toggle');
+    if (mediaState.videoVisible) {
+        videoToggle.textContent = '📺 Ocultar Vídeo';
+        videoToggle.classList.add('active');
+    } else {
+        videoToggle.textContent = '📺 Mostrar Vídeo Educativo';
+        videoToggle.classList.remove('active');
+    }
+
+    // Atualiza o botão de música
+    const audioToggle = document.getElementById('audio-toggle');
+    if (mediaState.audioPlaying) {
+        audioToggle.textContent = '🎵 Desligar Música';
+        audioToggle.classList.add('active');
+        audioToggle.classList.remove('inactive');
+    } else {
+        audioToggle.textContent = '🎵 Ligar Música';
+        audioToggle.classList.remove('active');
+        audioToggle.classList.add('inactive');
+    }
+
+    // Atualiza o botão de sons
+    const soundToggle = document.getElementById('sound-toggle');
+    if (mediaState.soundEnabled) {
+        soundToggle.textContent = '🔊 Sons Ligados';
+        soundToggle.classList.add('active');
+        soundToggle.classList.remove('inactive');
+    } else {
+        soundToggle.textContent = '🔇 Sons Desligados';
+        soundToggle.classList.remove('active');
+        soundToggle.classList.add('inactive');
+    }
+}
+
+function toggleVideo() {
+    const videoContainer = document.getElementById('video-container');
+    
+    mediaState.videoVisible = !mediaState.videoVisible;
+    
+    if (mediaState.videoVisible) {
+        videoContainer.classList.add('show');
+        // Tenta dar play, se for visível
+        gameVideoDisplay.play().catch(e => console.warn('Falha ao dar play no vídeo: ', e)); 
+    } else {
+        videoContainer.classList.remove('show');
+        gameVideoDisplay.pause();
+        gameVideoDisplay.currentTime = 0; // Volta ao início
+    }
+    updateMediaControlsDisplay();
+}
+
+function toggleAudio() {
+    gameBGM.volume = mediaState.bgmVolume;
+    mediaState.audioPlaying = !mediaState.audioPlaying;
+    
+    if (mediaState.audioPlaying) {
+        gameBGM.play().catch(e => console.warn('Falha ao ligar a música (pode estar bloqueado): ', e));
+    } else {
+        gameBGM.pause();
+    }
+    updateMediaControlsDisplay();
+}
+
+function toggleSound() {
+    mediaState.soundEnabled = !mediaState.soundEnabled;
+    if (mediaState.soundEnabled) {
+        playSound('correct');
+    }
+    updateMediaControlsDisplay();
+}
+
+function playSound(type) {
+    if (!mediaState.soundEnabled) return;
+    
+    let audioEl;
+    let volume = 1.0;
+
+    // Mapeamento e volume dos sons
+    switch(type) {
+        case 'correct':
+            audioEl = soundCorrect;
+            break;
+        case 'incorrect':
+            audioEl = soundIncorrect;
+            volume = 0.5; // Ajuste o volume para ser menos agressivo
+            break;
+        case 'coin':
+            audioEl = soundCoin;
+            volume = 0.5;
+            break;
+        case 'dice':
+            audioEl = soundDice;
+            volume = 0.8;
+            break;
+        case 'move':
+            audioEl = soundMove;
+            volume = 0.8;
+            break;
+        case 'powerup':
+            // Usar o som de acerto para powerup (por ser mais positivo)
+            audioEl = soundCorrect; 
+            volume = 0.7;
+            break;
+        case 'intro_click':
+            // Usar o som de movimento para o clique inicial
+            audioEl = soundMove; 
+            volume = 0.7;
+            break;
+        default:
+            return;
+    }
+
+    if (audioEl) {
+        // Toca o som a partir do início, mesmo se já estiver tocando
+        audioEl.pause();
+        audioEl.currentTime = 0;
+        audioEl.volume = volume;
+        audioEl.play().catch(e => console.warn(`Falha ao tocar som ${type}: `, e));
+    }
+}
+
+// --- FLUXO DE INICIALIZAÇÃO DO JOGO ---
+
+function showWelcomeScreen() {
+    document.getElementById('video-intro-screen').classList.add('hidden');
+    document.getElementById('welcome-screen').classList.remove('hidden');
+    // Para o vídeo de introdução quando avança
+    introVideo.pause(); 
+    introVideo.style.display = 'none';
+    
+    playBGM(); // Tenta ligar a música
+}
+
+function startIntroFlow() {
+    // Esta função é o fallback manual (quando o botão 'Iniciar Jogo' é clicado)
+    // Se o vídeo não rodou por falha de carregamento, pule.
+    if (introVideo.style.display === 'block' && introVideo.paused) {
+        // Se o vídeo está visível mas PAUSADO (falha no autoplay/carregamento)
+        introVideo.pause(); 
+        showWelcomeScreen();
+    } else if (introVideo.style.display === 'none') {
+        // Se o vídeo nem chegou a aparecer (falha completa antes do timeout)
+        showWelcomeScreen();
+    }
+}
+
+async function initializeApp() {
+    try {
+        // ... (código SDK) ...
+
+        // 1. Tentar dar play automático (muted, no HTML) e configurar o fluxo
+        introVideo.play().then(() => {
+            // Sucesso: O vídeo está rodando (muted). Exibe o controle de som.
+            unmuteBtn.classList.remove('hidden'); 
+            document.getElementById('video-status').textContent = '▶️ Vídeo iniciado! Clique no botão para LIGAR o som.';
+            playFallbackBtn.classList.add('hidden'); // Esconde o fallback se rodar
+        }).catch(error => {
+            // Falha: Autoplay bloqueado. Exibe o botão de FALLBACK para pular o vídeo.
+            unmuteBtn.classList.add('hidden');
+            playFallbackBtn.classList.remove('hidden');
+            document.getElementById('video-status').textContent = '▶️ Carregamento Falhou. Clique abaixo para iniciar o Jogo.';
+            console.warn("Autoplay bloqueado. Usuário deve usar o botão de fallback.", error);
+        });
+
+        // 2. Configurar evento de término do vídeo para AVANÇAR O JOGO
+        introVideo.onended = () => {
+            showWelcomeScreen();
+        };
+        
+        // 3. Configurar volume inicial da BGM
+        gameBGM.volume = mediaState.bgmVolume;
+        updateMediaControlsDisplay();
+
+        // *** CORREÇÃO CRÍTICA: FALLBACK DE TIMEOUT ***
+        // Garante que o botão de início apareça se o carregamento falhar ou congelar após 3s.
+        setTimeout(() => {
+            const videoStatus = document.getElementById('video-status');
             
-            mediaState.videoVisible = !mediaState.videoVisible;
-            
-            if (mediaState.videoVisible) {
-                videoContainer.classList.add('show');
-                // Tenta dar play, se for visível
-                gameVideoDisplay.play().catch(e => console.warn('Falha ao dar play no vídeo: ', e)); 
-            } else {
-                videoContainer.classList.remove('show');
-                gameVideoDisplay.pause();
-                gameVideoDisplay.currentTime = 0; // Volta ao início
+            // Verifica se o botão de unmute ainda está visível, mas o vídeo não está rodando (erro)
+            if (introVideo.paused && introVideo.style.display === 'block') {
+                 // Vídeo congelou ou falhou, exibe o botão de fallback se ainda não estiver visível
+                 playFallbackBtn.classList.remove('hidden');
+                 unmuteBtn.classList.add('hidden'); // Esconde o mute/unmute
+                 videoStatus.textContent = '▶️ Falha ao carregar o vídeo. Pressione INICIAR para pular e começar.';
+            } else if (introVideo.style.display !== 'block' && playFallbackBtn.classList.contains('hidden')) {
+                 // Falha de carregamento inicial, força o fallback
+                 playFallbackBtn.classList.remove('hidden');
+                 videoStatus.textContent = '▶️ Falha ao carregar o vídeo. Pressione INICIAR para pular e começar.';
             }
-            updateMediaControlsDisplay();
-        }
+        }, 3000); // 3 segundos
 
-        function toggleAudio() {
-            gameBGM.volume = mediaState.bgmVolume;
-            mediaState.audioPlaying = !mediaState.audioPlaying;
-            
-            if (mediaState.audioPlaying) {
-                gameBGM.play().catch(e => console.warn('Falha ao ligar a música (pode estar bloqueado): ', e));
-            } else {
-                gameBGM.pause();
-            }
-            updateMediaControlsDisplay();
-        }
+    } catch (error) {
+        console.error("Error initializing app:", error);
+        // Em caso de erro fatal, avança para a tela de boas-vindas
+        showWelcomeScreen();
+    }
+}
 
-        function toggleSound() {
-            mediaState.soundEnabled = !mediaState.soundEnabled;
-            if (mediaState.soundEnabled) {
-                playSound('correct');
-            }
-            updateMediaControlsDisplay();
-        }
-
-        function playSound(type) {
-            if (!mediaState.soundEnabled) return;
-            
-            let audioEl;
-            let volume = 1.0;
-
-            // Mapeamento e volume dos sons
-            switch(type) {
-                case 'correct':
-                    audioEl = soundCorrect;
-                    break;
-                case 'incorrect':
-                    audioEl = soundIncorrect;
-                    volume = 0.5; // Ajuste o volume para ser menos agressivo
-                    break;
-                case 'coin':
-                    audioEl = soundCoin;
-                    volume = 0.5;
-                    break;
-                case 'dice':
-                    audioEl = soundDice;
-                    volume = 0.8;
-                    break;
-                case 'move':
-                    audioEl = soundMove;
-                    volume = 0.8;
-                    break;
-                case 'powerup':
-                    // Usar o som de acerto para powerup (por ser mais positivo)
-                    audioEl = soundCorrect; 
-                    volume = 0.7;
-                    break;
-                case 'intro_click':
-                    // Usar o som de movimento para o clique inicial
-                    audioEl = soundMove; 
-                    volume = 0.7;
-                    break;
-                default:
-                    return;
-            }
-
-            if (audioEl) {
-                // Toca o som a partir do início, mesmo se já estiver tocando
-                audioEl.pause();
-                audioEl.currentTime = 0;
-                audioEl.volume = volume;
-                audioEl.play().catch(e => console.warn(`Falha ao tocar som ${type}: `, e));
-            }
-        }
-
-        // --- FLUXO DE INICIALIZAÇÃO DO JOGO ---
-
-        function showWelcomeScreen() {
-            document.getElementById('video-intro-screen').classList.add('hidden');
-            document.getElementById('welcome-screen').classList.remove('hidden');
-            introVideo.style.display = 'none';
-            playBGM(); // Tenta ligar a música
-        }
-
-        function startIntroFlow() {
-            playSound('intro_click');
-            introVideo.style.display = 'block';
-            document.getElementById('play-intro-btn').classList.add('hidden');
-            document.getElementById('video-status').textContent = '📺 Vídeo em reprodução...';
-
-            // Tenta dar play no vídeo (com som, pois foi uma interação do usuário)
-            introVideo.muted = false;
-            introVideo.volume = 1.0; 
-            introVideo.play().then(() => {
-                console.log("Vídeo iniciado após clique do usuário.");
-            }).catch(error => {
-                console.error("Falha na reprodução, pulando o vídeo.", error);
-                // Se falhar mesmo com o clique, avança
-                showWelcomeScreen();
-            });
-        }
-
-        async function initializeApp() {
-            try {
-                if (window.dataSdk) {
-                    const initResult = await window.dataSdk.init(dataHandler);
-                    if (!initResult.isOk) {
-                        console.error("Failed to initialize data SDK");
-                    }
-                }
-
-                if (window.elementSdk) {
-                    await window.elementSdk.init(element);
-                }
-
-                // 1. Tentar dar play automático no vídeo
-                introVideo.muted = true; // Necessário para autoplay em muitos navegadores
-                introVideo.play().then(() => {
-                    // SUCESSO: O vídeo está tocando (em mudo)
-                    introVideo.muted = false; // Permite ao usuário ligar o som
-                    introVideo.style.display = 'block';
-                    document.getElementById('video-status').textContent = '🔊 Clique no vídeo para ligar o som.';
-                }).catch(error => {
-                    // FALHA: O autoplay foi bloqueado
-                    console.warn("Autoplay do vídeo bloqueado. Requer clique.");
-                    document.getElementById('play-intro-btn').classList.remove('hidden');
-                    document.getElementById('video-status').textContent = '▶️ Pressione "Iniciar Vídeo / Jogo" para continuar.';
-                });
-
-                // 2. Configurar evento de término do vídeo
-                introVideo.onended = () => {
-                    showWelcomeScreen();
-                };
-
-                // 3. Configurar volume inicial da BGM
-                gameBGM.volume = mediaState.bgmVolume;
-                updateMediaControlsDisplay();
-
-                // CORREÇÃO: Adiciona um tempo limite de 3 segundos para exibir o botão se o vídeo falhar ou demorar
-                setTimeout(() => {
-                    const videoStatus = document.getElementById('video-status');
-                    const playBtn = document.getElementById('play-intro-btn');
-                    
-                    // Se o vídeo ainda estiver "escondido" (não iniciou com sucesso):
-                    if (introVideo.style.display === 'none') {
-                         playBtn.classList.remove('hidden');
-                         videoStatus.textContent = '▶️ Falha ao carregar o vídeo. Pressione INICIAR para pular e começar.';
-                    }
-                }, 3000); // 3 segundos de espera
-
-            } catch (error) {
-                console.error("Error initializing app:", error);
-                // Em caso de erro fatal, avança para a tela de boas-vindas
-                showWelcomeScreen();
-            }
-        }
-
-        function playBGM() {
-            if (!mediaState.audioPlaying) {
-                 gameBGM.volume = mediaState.bgmVolume;
-                 gameBGM.play().then(() => {
-                    mediaState.audioPlaying = true;
-                    updateMediaControlsDisplay();
-                 }).catch(e => {
-                    console.warn("Música de fundo bloqueada. O usuário deve ligá-la manualmente.");
-                    mediaState.audioPlaying = false;
-                    updateMediaControlsDisplay();
-                 });
-            }
-        }
-
-        function stopBGM() {
-            gameBGM.pause();
-            gameBGM.currentTime = 0;
-            mediaState.audioPlaying = false;
-            updateMediaControlsDisplay();
-        }
-
-        // --- FUNÇÕES DE LÓGICA DO JOGO ---
-
+// ... (O restante das funções do jogo continuam aqui, como startGame, movePlayer, etc.) ...
         function startGame() {
             const player1Name = document.getElementById('player1-name').value.trim();
             const player2Name = document.getElementById('player2-name').value.trim();
