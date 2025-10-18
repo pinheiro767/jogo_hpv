@@ -347,7 +347,7 @@
                     // SUCESSO: O vídeo está tocando (em mudo)
                     introVideo.muted = false; // Permite ao usuário ligar o som
                     introVideo.style.display = 'block';
-                    document.getElementById('video-status').textContent = '▶️ Clique no vídeo para INICIAR a introdução e o fluxo do jogo!';
+                    document.getElementById('video-status').textContent = '🔊 Clique no vídeo para ligar o som.';
                 }).catch(error => {
                     // FALHA: O autoplay foi bloqueado
                     console.warn("Autoplay do vídeo bloqueado. Requer clique.");
@@ -363,6 +363,18 @@
                 // 3. Configurar volume inicial da BGM
                 gameBGM.volume = mediaState.bgmVolume;
                 updateMediaControlsDisplay();
+
+                // CORREÇÃO: Adiciona um tempo limite de 3 segundos para exibir o botão se o vídeo falhar ou demorar
+                setTimeout(() => {
+                    const videoStatus = document.getElementById('video-status');
+                    const playBtn = document.getElementById('play-intro-btn');
+                    
+                    // Se o vídeo ainda estiver "escondido" (não iniciou com sucesso):
+                    if (introVideo.style.display === 'none') {
+                         playBtn.classList.remove('hidden');
+                         videoStatus.textContent = '▶️ Falha ao carregar o vídeo. Pressione INICIAR para pular e começar.';
+                    }
+                }, 3000); // 3 segundos de espera
 
             } catch (error) {
                 console.error("Error initializing app:", error);
@@ -603,6 +615,8 @@
             const notification = document.createElement('div');
             notification.className = 'powerup-notification';
             notification.style.background = color;
+            notification.textContent = message;
+            
             document.body.appendChild(notification);
             
             setTimeout(() => {
@@ -725,7 +739,7 @@
                 playSound('powerup');
                 setTimeout(() => {
                     currentPlayer.powerups.double = false;
-                    updatePowerupButtons();
+                    updatePlayerButtons();
                 }, 30000);
             }
             
@@ -1043,23 +1057,5 @@
             initializeApp();
         }
 
-        // --- NOVO TRECHO (js/game.js) ---
-async function initializeApp() {
-    try {
-        // ... (código SDK) ...
-
-        // 1. Tentar dar play automático no vídeo
-        introVideo.muted = true; // Necessário para autoplay em muitos navegadores
-        introVideo.play().then(() => {
-            // SUCESSO: O vídeo está tocando (em mudo)
-            introVideo.muted = false; // Permite ao usuário ligar o som
-            introVideo.style.display = 'block';
-            document.getElementById('video-status').textContent = '🔊 Clique no vídeo para ligar o som.';
-        }).catch(error => {
-            // FALHA: O autoplay foi bloqueado - MOSTRA O BOTÃO DE INÍCIO
-            console.warn("Autoplay do vídeo bloqueado. Requer clique.", error);
-            document.getElementById('play-intro-btn').classList.remove('hidden'); // <<-- IMPORTANTE
-            document.getElementById('video-status').textContent = '▶️ Pressione "Iniciar Vídeo / Jogo" para continuar.';
-        });
-
-        // ... (o restante da função continua) ...
+        // Initialize app when page loads
+        document.addEventListener('DOMContentLoaded', initializeApp);

@@ -43,18 +43,18 @@
    <div class="game-card">
 
     <div id="video-intro-screen">
-    <div class="header">
-        <h1 class="game-title">🎬 Introdução ao HPV</h1>
-        <p class="subtitle" id="video-status">O vídeo está carregando... prepare-se para jogar!</p>
+        <div class="header">
+            <h1 class="game-title">🎬 Introdução ao HPV</h1>
+            <p class="subtitle" id="video-status">O vídeo está carregando... prepare-se para jogar!</p>
+        </div>
+        <div class="video-container show" id="intro-video-container" style="display: flex; justify-content: center; align-items: center; min-height: 200px;">
+            <video id="intro-video" preload="auto" poster="assets/video/poster.jpg" style="width: 100%; max-width: 640px; display: none;">
+                <source src="assets/video/Anime_Girl_Confused_About_HPV.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            <button class="btn btn-primary hidden" id="play-intro-btn" onclick="startIntroFlow()">▶️ Iniciar Vídeo / Jogo</button>
+        </div>
     </div>
-    <div class="video-container show" id="intro-video-container" style="display: flex; justify-content: center; align-items: center; min-height: 200px;">
-        <video id="intro-video" preload="auto" poster="assets/video/poster.jpg" style="width: 100%; max-width: 640px; display: none;">
-            <source src="assets/video/Anime_Girl_Confused_About_HPV.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-        </video>
-        <button class="btn btn-primary hidden" id="play-intro-btn" onclick="startIntroFlow()">▶️ Iniciar Vídeo / Jogo</button>
-    </div>
-</div>
 
     <div id="welcome-screen" class="hidden">
      <div class="header">
